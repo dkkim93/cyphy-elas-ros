@@ -51,12 +51,12 @@ class Elas_Proc {
         // Synchronize input topics. Optionally do approximate synchronization.
         bool approx; local_nh.param("approximate_sync", approx, false);
         if (approx) {
-          std::cout << "[ INFO ] Sync policy: approximate sync" << std::endl;
+          ROS_INFO("Sync policy: approximate sync");
           approximate_sync_.reset(new ApproximateSync(ApproximatePolicy(queue_size_), left_sub_, right_sub_, left_info_sub_, right_info_sub_) );
           approximate_sync_->registerCallback(boost::bind(&Elas_Proc::process, this, _1, _2, _3, _4));
         }
         else {
-          std::cout << "[ INFO ] Sync policy: exact sync" << std::endl;
+          ROS_INFO("Sync policy: exact sync");
           exact_sync_.reset(new ExactSync(ExactPolicy(queue_size_), left_sub_, right_sub_, left_info_sub_, right_info_sub_) );
           exact_sync_->registerCallback(boost::bind(&Elas_Proc::process, this, _1, _2, _3, _4));
         }
