@@ -46,7 +46,7 @@ class Elas_Proc {
         pub_disparity_ = local_nh.advertise<stereo_msgs::DisparityImage>("disparity", 1);
 
         // Create the elas processing class
-        elas_parameter_setup(5);
+        elas_parameter_setup();
 
         // Synchronize input topics. Optionally do approximate synchronization.
         bool approx; local_nh.param("approximate_sync", approx, false);
@@ -71,7 +71,7 @@ class Elas_Proc {
 
     void reconfigure_callback(elas_ros::reconfigureConfig &config, uint32_t level);
 
-    void elas_parameter_setup(int32_t disp_min) {
+    void elas_parameter_setup() {
       std::cout << "[ INFO ] Setting up ELAS parameters ..." << std::endl;
 
       param.reset(new Elas::parameters);
@@ -351,9 +351,7 @@ void Elas_Proc::reconfigure_callback(elas_ros::reconfigureConfig &config, uint32
   postprocess_only_left = config.postprocess_only_left;  
   subsampling           = config.subsampling;            
   
-  // Elas_Proc processor("raw"); 
-  // processor.elas_parameter_setup(config.disp_min);
-  elas_parameter_setup(config.disp_min);
+  elas_parameter_setup();
 }
 
 int main(int argc, char** argv) {
@@ -362,12 +360,6 @@ int main(int argc, char** argv) {
   // Trasport possible options: "raw", "compressed", "theora"
   // ref: http://wiki.ros.org/image_transport
   Elas_Proc processor("raw");
-
-  // // Reconfigure callback
-  // dynamic_reconfigure::Server<elas_ros::reconfigureConfig> reconfigure_server;
-  // dynamic_reconfigure::Server<elas_ros::reconfigureConfig>::CallbackType reconfigure_callback_f;
-  // reconfigure_callback_f = boost::bind(&reconfigure_callback, _1, _2);
-  // reconfigure_server.setCallback(reconfigure_callback_f);
 
   ros::spin();
 
