@@ -5,7 +5,7 @@ This code is modified from the original source code: https://github.com/jeffdelm
 
 Main modification from the source code is the addition of the dynamic_reconfigure function (http://wiki.ros.org/dynamic_reconfigure) for dynamically tuning the elas hyperparameters. 
 
-## Insturction
+## Instruction
 
 ## Contact
 Dong-Ki Kim
