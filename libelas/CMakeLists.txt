@@ -10,18 +10,11 @@ catkin_simple()
 add_definitions(-msse3)
 
 cs_add_library(elas
-  libelas/src/descriptor.cpp
-  libelas/src/elas.cpp
-  libelas/src/filter.cpp
-  libelas/src/matrix.cpp
-  libelas/src/triangle.cpp)
-
-#include_directories(include ${catkin_INCLUDE_DIRS})
-
-# catkin_package(
-#   INCLUDE_DIRS libelas/src
-#   LIBRARIES elas
-# )
+  src/descriptor.cpp
+  src/elas.cpp
+  src/filter.cpp
+  src/matrix.cpp
+  src/triangle.cpp)
 
 cs_install()
 cs_export()

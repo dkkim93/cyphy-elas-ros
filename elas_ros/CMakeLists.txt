@@ -23,7 +23,6 @@ target_link_libraries(elas_ros ${OpenCV_LIBRARIES} ${Boost_LIBRARIES} ${catkin_L
 cs_add_executable(elas_reconfigure src/elas_reconfigure.cpp)
 add_dependencies(elas_reconfigure ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_gencpp)
 
-
 cs_add_executable(pc_construction src/pc_construction.cpp)
 add_dependencies(pc_construction ${PROJECT_NAME}_gencpp)
 target_link_libraries(pc_construction ${OpenCV_LIBRARIES} ${Boost_LIBRARIES} ${catkin_LIBRARIES})
