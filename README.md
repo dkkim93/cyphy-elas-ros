@@ -1,9 +1,9 @@
 # elas_ros with dynamic_reconfigure
 
 ## Introduction
-This code is modified from the original source code: https://github.com/jeffdelmerico/cyphy-elas-ros.
+This code is modified from the original elas_ros source code: https://github.com/jeffdelmerico/cyphy-elas-ros.
 
-Main modification from the source code is the addition of the dynamic_reconfigure function (http://wiki.ros.org/dynamic_reconfigure) for dynamically tuning the elas hyperparameters. 
+Main modification is an addition of the dynamic_reconfigure function (http://wiki.ros.org/dynamic_reconfigure) for dynamically tuning the elas hyperparameters. 
 
 ## Build
 ```
