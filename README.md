@@ -11,7 +11,7 @@ In the workspace src folder, build the package by:
 
 ```
 cd ~/ros_ws/src/
-git clone https://github.com/dkkim93/cyphy-elas-ros
+git clone https://github.com/dkkim93/elas-ros-dynamic-reconfigure
 cd ~/ros_ws/ && catkin_make
 ```
 
